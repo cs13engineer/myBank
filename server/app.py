@@ -4,6 +4,7 @@ from Login import loginServer
 from Register import registerBank
 from Register import registerCustomer
 from Account import account
+from Register import addCustomerDetails
 
 
 app = Flask(__name__)
@@ -30,6 +31,11 @@ def getCustomer():
 def registerUser():
     data = request.json
     return registerCustomer.RegisterCustomer(data)
+
+@app.route('/addCustomerDetails',methods=["POST"])
+def addCustomerDetails():
+    data = request.json
+    return addCustomerDetails.AddDetails(data)
 
 @app.route('/createAccount',methods=["POST"])
 def createAccount():
